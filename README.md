@@ -36,3 +36,17 @@ URL should be ‘/posts/<id here>’
 Should be a GET request,
 URL should be ‘/posts/users/<Id here>'
 ```
+## Installation
+
+Install my-project
+
+```go 
+ go run server.go
+```
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`Password` for mongoDB
+
+> Submission by Ayush Tamra for the task assigned by Appointy
