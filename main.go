@@ -141,35 +141,6 @@ func main() {
 	// }
 	// admin_pass := os.Getenv("ADMIN_PASSWORD")
 
-
-	//MongoDB connect
-    client, err := mongo.NewClient(options.Client().ApplyURI("mongodb+srv://ayush:qujNnfBY7UQj9T2C@cluster0.cgolj.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"))
-	if err != nil {
-		log.Fatal(err)
-	}
-	ctx, _ := context.WithTimeout(context.Background(), 10*time.Second)
-	err = client.Connect(ctx)
-	if err != nil {
-		log.Fatal(err)
-	}
-	defer client.Disconnect(ctx)
-	err = client.Ping(ctx, readpref.Primary())
-	if err != nil {
-		log.Fatal(err)
-	}
-	databases, err := client.ListDatabaseNames(ctx, bson.M{})
-	if err != nil {
-		log.Fatal(err)
-	}
-	fmt.Println(databases)
-
-
-	// Route Handlers / Endpoints
-	// r.HandleFunc("/api/books", getBooks).Methods("GET");
-	// r.HandleFunc("/api/books/{id}", getBook).Methods("GET");
-	// r.HandleFunc("/api/books", createBook).Methods("POST");
-	// r.HandleFunc("/api/books/{id}", updateBook).Methods("PUT");
-	// r.HandleFunc("/api/books/{id}", deleteBook).Methods("DELETE");
 	
 	http.HandleFunc("/", mainpage)
 	r.HandleFunc("/users", add_new_user).Methods("POST")
